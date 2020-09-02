@@ -1,0 +1,72 @@
+.footer {
+    grid-area: footer;
+    background-color: rgba(238, 238, 238, 0.85);
+    position: relative;
+
+    @include respond-tab-landscape {
+        margin-left: 2rem;
+    }
+
+    @include respond-phone {
+        margin-left: 1rem;
+    }
+
+    &__text {
+        position: absolute;
+        bottom: 2.5rem;
+        right: 1rem;
+
+        @include respond-tab-landscape {
+            top: 2rem;
+            right: 5px;
+        }
+
+        @include respond-tab-portrait {
+            top: 1.5rem;
+        }
+
+        @include respond-phone {
+            left: 50%;
+            transform: translateX(-40%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+
+    &__main-text {
+        margin: 0;
+        display: inline-block;
+        margin-right: 3px;
+    }
+
+    &__api-text {
+        @include respond-tab-portrait {
+            display: block;
+            margin-top: 5px;
+        }
+    }
+
+    &__link {
+        &:link, &:visited {
+            display: inline-block;
+            margin-left: .5rem;
+            transition: all .2s;
+            color: #f12711;
+
+            @supports (-webkit-background-clip: text) {
+                background-image: linear-gradient(to right, #f12711, #f5af19);
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+        }
+
+        &:hover {
+            transform: scale(1.08) translateY(-4px);
+        }
+
+        &:focus {
+            transform: scale(1.04) translateY(-2px);
+        }
+    }
+}

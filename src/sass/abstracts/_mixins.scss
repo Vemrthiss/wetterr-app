@@ -1,0 +1,32 @@
+@mixin greyLine {
+    content: "";
+    background: rgba(0,0,0, 0.2);
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include respond-phone {
+        bottom: -5px;
+    }
+}
+
+@mixin respond-phone-small { // approx 350px
+    @media only screen and (max-width: 22em) {@content;}
+}
+
+@mixin respond-phone { // approx 450px
+    @media only screen and (max-width: 28em) {@content;}
+}
+
+@mixin respond-tab-portrait { // approx 650px
+    @media only screen and (max-width: 40em) {@content;}
+}
+
+@mixin respond-tab-landscape { // approx 900px
+    @media only screen and (max-width: 56.25em) {@content;}
+}
+
+@mixin respond-ipad { //1024 px
+    @media only screen and (max-width: 64em) {@content;}
+}

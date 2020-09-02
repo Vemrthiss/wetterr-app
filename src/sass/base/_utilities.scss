@@ -1,0 +1,25 @@
+// consider putting !important in them, but might mess up some things
+
+.margin-left-small {
+    margin-left: 2rem;
+
+    @include respond-tab-portrait {
+        margin-left: 1rem;
+    }
+}
+
+.margin-right-small {
+    margin-right: 2rem;
+
+    @include respond-tab-portrait {
+        margin-right: 1rem;
+    }
+}
+
+.margin-around-small {
+    margin: 2rem;
+
+    @include respond-tab-portrait {
+        margin: 1rem;
+    }
+}

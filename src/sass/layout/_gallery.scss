@@ -1,0 +1,99 @@
+.gallery {
+    grid-area: gallery;
+    padding: 5rem;
+    background-color: var(--color-grey-1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: none;
+    position: relative; //for absolute positioning of pagination div and gallery delete btn
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+
+    @include respond-tab-landscape {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 4rem;
+        padding: 6rem;
+    }
+
+    @include respond-tab-portrait {
+        gap: 2.5rem;
+        padding: 4.5rem;
+    }
+
+    @include respond-phone {
+        gap: 4rem;
+        padding: 7rem;
+        margin-left: 1rem;
+        border-left: none;
+    }
+
+    @include respond-phone-small {
+        padding: 5rem;
+        padding-top: 7rem;
+    }
+
+    &__pagination {
+        position: absolute;
+        top: 2rem;
+        right: 7.5rem;
+
+        @include respond-ipad {
+            top: 1.75rem;
+        }
+
+        @include respond-tab-landscape {
+            top: 1.65rem;
+        }
+
+        @include respond-phone {
+            right: 5.5rem;
+        }
+
+        @include respond-phone-small {
+            top: 1.75rem;
+        }
+    }
+
+    &__pagination-text {
+        margin: 0;
+    }
+
+    &__delete-btn {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        cursor: default;
+    }
+
+    &__delete-icon {
+        height: 2.5rem; 
+        width: 2.5rem;
+        fill: var(--color-secondary-dark-2);
+        margin-right: 5px;
+        cursor: pointer;
+
+        &:hover + p.gallery__delete-text {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @include respond-phone {
+            height: 2.25rem; 
+            width: 2.25rem;
+        }
+    }
+
+    &__delete-text {
+        display: inline-block;
+        margin: 0;
+
+        opacity: 0;
+        transform: scale(.1);
+        transition: all .4s;
+    }
+}

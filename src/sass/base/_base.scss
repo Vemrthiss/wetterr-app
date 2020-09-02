@@ -1,0 +1,79 @@
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-primary-dark);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, var(--color-primary-light-2), var(--color-primary-dark-2));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, var(--color-primary-light-2), var(--color-primary-dark-2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    display: grid;
+    grid-template-areas: "header header"
+                         "search gallery"
+                         "search footer";
+    grid-template-columns: 25vw 1fr;
+    //grid-template-rows: 15vh 75vh 10vh;
+    grid-template-rows: 7.5vw 40vw 5vw;
+
+    @include respond-ipad {
+        grid-template-columns: 27.5vw 1fr;
+        grid-template-rows: 10vw 50vw 7.5vw;
+    }
+
+    @include respond-tab-landscape {
+        grid-template-areas: "header header"
+                             "search gallery"
+                             "footer footer";
+        grid-template-columns: 37.5vw 1fr;
+        grid-template-rows: 15vw 95vw 8vw;
+    }
+
+    @include respond-tab-portrait {
+        grid-template-columns: 40vw 1fr;
+        grid-template-rows: 12.5vw 110vw 10vw;
+    }
+
+    @include respond-phone {
+        grid-template-areas: "header"
+                             "search"
+                             "gallery"
+                             "footer";
+        grid-template-columns: 100vw;
+        grid-template-rows: 30vw 115vw 170vw 20vw;
+        margin: 0;
+    }
+
+    @include respond-phone-small {
+        grid-template-rows: 35vw 140vw 180vw 22.5vw;
+    }
+}
+
+:root { // define css variables here
+    --color-primary-light-1: #6edec2;
+    --color-primary-light-2: #3CD3AD;
+    --color-primary-light-3: #2abb97;
+
+    --color-primary-dark-1: #79c9d2;
+    --color-primary-dark-2: #4CB8C4;
+    --color-primary-dark-3: #39a1ac;
+
+    --color-secondary-light-1: #33daff;
+    --color-secondary-light-2: #00d0ff;
+    --color-secondary-light-3: #00b4db;
+
+    --color-secondary-dark-1: #1ac6ff;
+    --color-secondary-dark-2: #00ace6;
+    --color-secondary-dark-3: #0083b0;
+
+    --color-grey-1: #eee;
+    --color-grey-2: #d9d9d9;
+    --color-grey-3: #bfbfbf;
+
+    --color-orange-1: #f9cc6c;
+    --color-orange-2: #f5af19;
+    --color-orange-3: #f5ab0a;
+}

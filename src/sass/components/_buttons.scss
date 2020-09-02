@@ -1,0 +1,83 @@
+.btn {
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-hidden {
+    // making the button transparent so that the icons are the only one visibile
+    border: none;
+    background-color: transparent;
+}
+
+.btn-primary {
+    padding: 1rem;
+    border-radius: 3rem;
+    border: 3.5px solid var(--color-grey-1);
+    border-color: var(--color-primary-light-2);
+
+    @include respond-phone {
+        border: 2.5px solid var(--color-grey-1);
+        border-color: var(--color-primary-light-2);
+    }
+}
+
+.btn-secondary {
+    padding: 1rem;
+    border-radius: .7rem;
+    border: none;
+
+    @include respond-phone {
+        padding: .75rem;
+    }
+    
+    &:hover {
+        transform: scale(1.08);
+        background-color: var(--color-orange-1);
+        z-index: 11;
+    }
+
+    &:focus {
+        transform: scale(1.05);
+    }
+}
+
+.pagination-btn {
+    height: 1.5rem;
+    position: absolute; // for absolute positioning of the forward and backward icons and self absolute positioning wrt its own div
+    top: 50%;
+    transform: translate(0, -50%);
+
+    &--backward {
+        left: -5rem;
+
+        &:hover {
+            animation: infiniteLeftOsc 1s infinite;
+        }
+    }
+
+    &--forward {
+        right: -5rem;
+
+        &:hover {
+            animation: infiniteRightOsc 1s infinite;
+        }
+    }
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+        position: absolute;
+
+        &--backward {
+            top: -2px;
+            left: 0;
+            fill: var(--color-primary-dark-3);
+        }
+
+        &--forward {
+            top: -2px;
+            right: 0;
+            fill: var(--color-primary-dark-3);
+        }
+    }
+}

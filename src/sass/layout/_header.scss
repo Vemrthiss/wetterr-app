@@ -1,0 +1,98 @@
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-areas: "icon form form form form null";
+    align-items: center;
+    background-color: rgba(238, 238, 238, 0.85);
+    padding: .8rem;
+    margin-bottom: 0;
+
+    @include respond-phone {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__icon {
+        grid-area: icon;
+        margin-left: 1.5rem;
+
+        @include respond-phone {
+            margin-left: 0;
+        }
+        
+        & span {
+            margin-left: -1rem;
+            color: var(--color-secondary-light-3);
+
+            @include respond-phone {
+                margin-left: -.5rem;
+            }
+
+            @supports (-webkit-background-clip: text) {
+                background-image:  linear-gradient(to right, var(--color-secondary-light-3), var(--color-secondary-dark-3));
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+        }   
+    }
+
+    &__icon-sun {
+        height: 3rem;
+        width: 3rem;
+        fill: var(--color-orange-2);
+    }
+
+    &__search {
+        grid-area: form;
+        justify-self: center;
+        position: relative;
+    }
+
+    &__city-query {
+        width: 40rem;
+        transition: all .3s;
+        padding: 1rem;
+        border-radius: 3rem;
+        border: 3.5px solid var(--color-grey-1);
+        outline: none;
+
+        @include respond-tab-portrait {
+            width: 50vw;
+        }
+
+        @include respond-phone {
+            width: 75vw;
+            padding: 1.25rem;
+        }
+
+        &:placeholder-shown {
+            border-color: var(--color-primary-dark-2);
+        }
+
+        &:hover {
+            transform: scaleX(1.1);
+        }
+
+        &:focus {
+            transform: scaleX(1.055);
+        }
+    }
+
+    &__city-query-btn {
+        padding: .4rem .7rem;
+        position: absolute; //for z-index to work and self absolute positioning
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        z-index: 10;
+        transition: all .2s;
+
+        &:hover {
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        @include respond-phone {
+            padding: .6rem .7rem;
+        }
+    }
+}

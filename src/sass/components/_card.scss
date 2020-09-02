@@ -1,0 +1,201 @@
+.card {
+    background: linear-gradient(to bottom right, var(--color-primary-light-1), var(--color-secondary-dark-1));
+    border-radius: 15px;
+    position: relative; //for absolute positioning of btn collection, weather icon and delete btn
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    &__weather-icon {
+        position: absolute;
+        top: 1rem;
+        left: -.5rem;
+
+        @include respond-ipad {
+            top: .75rem;
+        }
+
+        @include respond-tab-portrait {
+            top: .5rem;
+            left: -.75rem;
+        }
+
+        @include respond-phone {
+            top: 0;
+            left: -1.75rem;
+            transform: scale(.85);
+        }
+    }
+
+    &__delete-btn {
+        position: absolute;
+        top: 1rem;
+        right: .5rem;
+        transition: all .15s;
+
+        &:hover {
+            transform: scale(1.15);
+        }
+    }
+
+    &__delete-icon {
+        height: 2.5rem;
+        width: 2.5rem;
+        fill: var(--color-grey-1);
+
+        &:hover {
+            fill: var(--color-orange-1);
+        }
+
+        @include respond-phone {
+            height: 2.25rem; 
+            width: 2.25rem;
+        }
+    }
+
+    &__collection-btn {
+        position: absolute;
+        top: 15rem;
+        right: 1px;
+        transform: translateX(7.75rem) scaleX(.3);
+        padding: 1rem;
+        border-radius: 4rem;
+        background-color: var(--color-grey-1);
+        transition: all .4s;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        @include respond-tab-landscape {
+            top: 11rem;
+        }
+
+        @include respond-tab-portrait {
+            top: 10rem;
+            transform: translateX(6.5rem) scaleX(.3);
+        }
+
+        @include respond-phone {
+            top: 10.5rem;
+            transform: translateX(6.5rem) scaleX(.3);
+        }
+
+        @include respond-phone-small {
+            top: 10rem;
+        }
+        
+        & > * {
+            opacity: 0;
+            visibility: hidden;
+            transition: all .4s;
+        }
+
+        &:hover{
+            transform: translateX(0) scaleX(1);
+            background-color: transparent;
+
+            & > * {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &__unit-btns {
+        margin-bottom: .8rem;
+    }
+
+    &__unit-btn{
+        position: relative; //for z-index on active class to work and btn hovers (in button file)
+        transition: all .3s;
+
+        &--metric {
+            margin-right: -1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        &--imperial {
+            padding-left: 1.25rem;
+        }
+
+        &--active { //to manipulate using JS to show active unit
+            background-color: var(--color-orange-3);
+            z-index: 10;
+        }
+    }
+
+    &__refresh-btn-text {
+        display: inline-block;
+        margin: 0;
+    }
+
+    &__refresh-icon {
+        height: 1.2rem;
+        width: 1.2rem;
+        margin-right: 5px;
+    }
+
+    &__title {
+        position: relative; //for absolute positioning of grey line after pseudo element
+
+        &::after { //short dash underneath the heading
+            @include greyLine;
+            width: 20rem;
+            height: 1px;
+
+            @include respond-ipad {
+                width: 17.5rem;
+            }
+
+            @include respond-tab-portrait {
+                width: 15rem;
+            }
+
+            @include respond-phone-small {
+                width: 12.5rem;
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        & > *:not(:first-child) {
+            margin-bottom: 1.4rem;
+
+            @include respond-phone {
+                margin-bottom: 1.2rem;
+            }
+        }
+    }
+
+    &__city-name {
+        margin-top: 5px;
+    }
+
+    &__forecast-btn {
+        margin-top: 1rem;
+        transition: all .2s;
+
+        &:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0, 0.4);
+        }
+
+        &:focus {
+            transform: scale(1.02) translateY(-1px);
+            box-shadow: 0 1px 3px rgba(0,0,0, 0.4);
+        }
+
+        @include respond-tab-landscape {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+    }
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Wetterr | by Joel Tay</title>
+</head>
+<body>
+    <header class="header margin-around-small">
+        <h1 class="header__icon">
+            <svg class="header__icon-sun">
+                <use xlink:href="img/sprite.svg#icon-sun"></use>
+            </svg>
+            <span>Wetterr</span>
+        </h1>
+        <form action="" class="header__search">
+            <input type="text" placeholder="Search for a city here..." id="city-query" class="header__city-query">
+            <button class="header__city-query-btn btn-primary btn">Search</button>
+        </form>
+    </header>
+
+    <section class="search-bar margin-left-small">
+        <!-- <h3 class="search-bar__heading">Select your city</h3> -->
+
+        <!-- <ul class="search-bar__results"> 
+            <li class="search-bar__result">
+                <p class="search-bar__result-name">Hamburg, Hamburg, Germany</p>
+                <button class="search-bar__add-btn btn btn-hidden">
+                    <svg class="search-bar__icon search-bar__icon--add">
+                        <use xlink:href="img/sprite.svg#icon-plus"></use>
+                    </svg>
+                </button>
+            </li>
+
+            <li class="search-bar__result">
+                <p class="search-bar__result-name">Hamburg, Saramacca, Suriname</p>
+                <button class="search-bar__add-btn btn btn-hidden">
+                    <svg class="search-bar__icon search-bar__icon--add">
+                        <use xlink:href="img/sprite.svg#icon-plus"></use>
+                    </svg>
+                </button>
+            </li>
+
+            <li class="search-bar__result">
+                <p class="search-bar__result-name">Hamburg, New York, United...</p>
+                <button class="search-bar__add-btn btn btn-hidden">
+                    <svg class="search-bar__icon search-bar__icon--add">
+                        <use xlink:href="img/sprite.svg#icon-plus"></use>
+                    </svg>
+                </button>
+            </li>
+
+            <li class="search-bar__result">
+                <p class="search-bar__result-name">Hamburg, Pennsylvania, Unite...</p>
+                <button class="search-bar__add-btn btn btn-hidden">
+                    <svg class="search-bar__icon search-bar__icon--add">
+                        <use xlink:href="img/sprite.svg#icon-plus"></use>
+                    </svg>
+                </button>
+            </li>
+
+            <li class="search-bar__result">
+                <p class="search-bar__result-name">Hamburg, New Jersey, United...</p>
+                <button class="search-bar__add-btn btn btn-hidden">
+                    <svg class="search-bar__icon search-bar__icon--add">
+                        <use xlink:href="img/sprite.svg#icon-plus"></use>
+                    </svg>
+                </button>
+            </li>
+
+            <li class="search-bar__result">
+                <p class="search-bar__result-name">Hamburg, Minnesota, United...</p>
+                <button class="search-bar__add-btn btn btn-hidden">
+                    <svg class="search-bar__icon search-bar__icon--add">
+                        <use xlink:href="img/sprite.svg#icon-plus"></use>
+                    </svg>
+                </button>
+            </li>
+        </ul> -->
+
+        <!-- <div class="search-bar__pagination">
+            <button class="pagination-btn pagination-btn--backward btn btn-hidden">
+                <svg class="pagination-btn__icon pagination-btn__icon--backward">
+                    <use xlink:href="img/sprite.svg#icon-circle-left"></use>
+                </svg>
+            </button>
+            <p class="search-bar__pagination-current-page">Page 2</p>
+            <button class="pagination-btn pagination-btn--forward btn btn-hidden">
+                <svg class="pagination-btn__icon pagination-btn__icon--forward">
+                    <use xlink:href="img/sprite.svg#icon-circle-right"></use>
+                </svg>
+            </button>
+        </div> -->
+
+        <!-- <button class="search-bar__clear-btn btn-primary btn">clear list</button> -->
+    </section>
+
+    <section class="gallery margin-right-small">
+        <!-- <button class="gallery__delete-btn btn btn-hidden">
+            <svg class="gallery__delete-icon">
+                <use xlink:href="img/sprite.svg#icon-bin"></use>
+            </svg>
+            <p class="gallery__delete-text">Delete all cards</p>
+        </button> -->
+
+        <!-- <div class="gallery__pagination">
+            <button class="gallery__pagination-btn pagination-btn pagination-btn--backward btn btn-hidden">
+                <svg class="pagination-btn__icon pagination-btn__icon--backward">
+                    <use xlink:href="img/sprite.svg#icon-circle-left"></use>
+                </svg>
+            </button>
+            <p class="gallery__pagination-text">Page 1</p>
+            <button class="gallery__pagination-btn pagination-btn pagination-btn--forward btn btn-hidden">
+                <svg class="pagination-btn__icon pagination-btn__icon--forward">
+                    <use xlink:href="img/sprite.svg#icon-circle-right"></use>
+                </svg>
+            </button>
+        </div> -->
+
+        <!-- <div class="card">
+            <img src="img/weather_icons/16.png" alt="weather icon" class="card__weather-icon">
+
+            <button class="card__delete-btn btn btn-hidden">
+                <svg class="card__delete-icon">
+                    <use xlink:href="img/sprite.svg#icon-bin"></use>
+                </svg>
+            </button>
+
+            <div class="card__collection-btn">
+                <div class="card__unit-btns">
+                    <button class="card__unit-btn card__unit-btn--metric card__unit-btn--active btn btn-secondary">Metric</button>
+                    <button class="card__unit-btn card__unit-btn--imperial btn btn-secondary">Imperial</button>
+                </div>
+
+                <button class="card__refresh-btn btn btn-secondary">
+                    <svg class="card__refresh-icon">
+                        <use xlink:href="img/sprite.svg#icon-spinner11"></use>
+                    </svg>
+                    <p class="card__refresh-btn-text">Refresh</p>
+                </button>
+            </div>
+
+            <div class="card__header">
+                <p class="card__city-name">Singapore</p>
+                <p class="card__title">Central Singapore, Singapore</p>
+                <p class="card__weather-text">Thundershower</p>
+                <p class="card__time">Local Time: 14:53</p>
+            </div>
+
+            <div class="card__body">
+                <p class="card__temperature">Temperature: 32.8 &deg;C</p>
+                <p class="card__humidity">Humidity: 66%</p>
+                <p class="card__wind">Wind: S, at 14.8 km/h</p>
+
+                <button class="card__forecast-btn btn-primary btn">view forecast</button>
+            </div>
+        </div> -->
+    </section>
+
+    <footer class="footer margin-right-small">
+        <div class="footer__text">
+            <p class="footer__main-text">Built and Copyright &copy; by Joel Tay.</p> 
+            <span class="footer__api-text">Powered by <a href="https://developer.accuweather.com/" class="footer__link">AccuWeather API</a></span>
+        </div>
+    </footer>
+    
+    <!-- <div class="popup">
+        <div class="popup__content">
+            <div class="popup__main-btns">
+                <div class="popup__unit-btns">
+                    <button class="popup__unit-btn popup__unit-btn--metric popup__unit-btn--active btn btn-secondary">Metric</button>
+                    <button class="popup__unit-btn popup__unit-btn--imperial btn btn-secondary">Imperial</button>
+                </div>
+                <button class="popup__delete-btn btn btn-hidden">
+                    <svg class="popup__delete-icon">
+                        <use xlink:href="img/sprite.svg#icon-cancel-circle"></use>
+                    </svg>
+                </button>
+            </div>
+            
+    
+            <div class="popup__header">
+                <p class="popup__city-name">Singapore</p>
+                <p class="popup__state-country-name">Central Singapore, Singapore</p>
+                <p class="popup__header-text">Forecast for the next three days <span class="popup__header-dates">(26/05/20 &mdash; 28/05/20)</span></p>
+            </div>
+    
+            <div class="popup__forecasts">
+                <div class="popup__forecast">
+                    <div class="popup__upper">
+                        <p class="popup__date">Date: 26/05/20</p>
+                        <p class="popup__temperature">Temperature: 26 / 35 &deg;C</p>
+                        <p class="popup__temperature-felt">Perceived Temperature: 30 / 40 &deg;C</p>
+                        <p class="popup__air-quality">Air Quality: Good</p>
+                    </div>
+    
+                    <div class="popup__bottom">
+                        <div class="popup__day-btns">
+                            <button class="popup__day-btn popup__day-btn--day popup__day-btn--active btn btn-secondary">Day</button>
+                            <button class="popup__day-btn popup__day-btn--night btn btn-secondary">Night</button>
+                        </div>
+                        <img src="img/weather_icons/16.png" alt="weather icon" class="popup__weather-icon">
+                        <p class="popup__weather-text">Partly Sunny</p>
+                        <p class="popup__wind">Wind: S, at 14.8 km/h</p>
+                        <p class="popup__rain-prob">Rain Probability: 60%</p>
+                        <p class="popup__snow-prob">Snow Probability: 0%</p>
+                    </div>
+                </div>
+    
+                <div class="popup__forecast">
+                    <div class="popup__upper">
+                        <p class="popup__date">Date: 27/05/20</p>
+                        <p class="popup__temperature">Temperature: 26 / 35 &deg;C</p>
+                        <p class="popup__temperature-felt">Perceived Temperature: 30 / 40 &deg;C</p>
+                        <p class="popup__air-quality">Air Quality: Good</p>
+                    </div>
+    
+                    <div class="popup__bottom">
+                        <div class="popup__day-btns">
+                            <button class="popup__day-btn popup__day-btn--day popup__day-btn--active btn btn-secondary">Day</button>
+                            <button class="popup__day-btn popup__day-btn--night btn btn-secondary">Night</button>
+                        </div>
+                        <img src="img/weather_icons/16.png" alt="weather icon" class="popup__weather-icon">
+                        <p class="popup__weather-text">Partly Sunny</p>
+                        <p class="popup__wind">Wind: S, at 14.8 km/h</p>
+                        <p class="popup__rain-prob">Rain Probability: 60%</p>
+                        <p class="popup__snow-prob">Snow Probability: 0%</p>
+                    </div>
+                </div>
+    
+                <div class="popup__forecast">
+                    <div class="popup__upper">
+                        <p class="popup__date">Date: 28/05/20</p>
+                        <p class="popup__temperature">Temperature: 26 / 35 &deg;C</p>
+                        <p class="popup__temperature-felt">Perceived Temperature: 30 / 40 &deg;C</p>
+                        <p class="popup__air-quality">Air Quality: Good</p>
+                    </div>
+    
+                    <div class="popup__bottom">
+                        <div class="popup__day-btns">
+                            <button class="popup__day-btn popup__day-btn--day popup__day-btn--active btn btn-secondary">Day</button>
+                            <button class="popup__day-btn popup__day-btn--night btn btn-secondary">Night</button>
+                        </div>
+                        <img src="img/weather_icons/16.png" alt="weather icon" class="popup__weather-icon">
+                        <p class="popup__weather-text">Partly Sunny</p>
+                        <p class="popup__wind">Wind: S, at 14.8 km/h</p>
+                        <p class="popup__rain-prob">Rain Probability: 60%</p>
+                        <p class="popup__snow-prob">Snow Probability: 0%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</body>
+</html>

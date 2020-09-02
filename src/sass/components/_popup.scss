@@ -1,0 +1,299 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, .7);
+    z-index: 9999;
+
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba(0,0,0, 0.3);
+    }
+
+    &__content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 45vw;
+        width: 90vw;
+        z-index: 100;
+        padding: 2rem;
+        border-radius: 2.5rem;
+
+        background: #2980B9;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include respond-ipad {
+            height: 55vw;
+        }
+
+        @include respond-tab-landscape {
+            height: 105vw;
+            justify-content: center;
+        }
+
+        @include respond-phone {
+            height: 165vw;
+            width: 95vw;
+        }
+
+        @include respond-phone-small {
+            height: 172vw;
+        }
+    }
+
+    &__main-btns {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
+        display: flex;
+
+        @include respond-phone {
+            right: .5rem;
+        }
+    }
+
+    &__unit-btns {
+        @include respond-phone {
+            position: absolute;
+            left: -35rem;
+        }
+
+        @include respond-phone-small {
+            position: absolute;
+            left: -31rem;
+        }
+    }
+
+    &__delete-btn {
+        margin-left: 1.5rem;
+        transition: all .2s;
+
+        &:hover {
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        &:focus {
+            transform: translateY(-1.5px) scale(1.03);
+        }
+    }
+
+    &__delete-icon {
+        height: 2.25rem;
+        width: 2.25rem;
+
+        &:hover {
+            fill: var(--color-orange-3);
+        }
+
+        @include respond-phone {
+            height: 2rem;
+            width: 2rem;
+        }
+    }
+
+    &__unit-btn {
+        position: relative; //for z-index on active class to work and btn hovers (in button file)
+        transition: all .15s;
+
+        &--metric {
+            margin-right: -1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        &--imperial {
+            padding-left: 1.25rem;
+        }
+
+        &--active { //to manipulate using JS to show active unit
+            background-color: var(--color-orange-3);
+            z-index: 10;
+        }
+    }
+
+    &__header {
+        & > * {
+            margin: 0;
+        }
+
+        & > *:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        @include respond-tab-landscape {
+            margin-bottom: 5rem;
+        }
+
+        @include respond-phone {
+            margin-bottom: 7.5rem;
+        }
+
+        @include respond-phone-small {
+            margin: 5rem 0;
+        }
+    }
+
+    &__header-dates {
+        @include respond-phone {
+            display: block;
+        }
+    }
+
+    &__forecasts {
+        display: flex;
+        justify-content: space-around;
+
+        @include respond-tab-landscape {
+            flex-direction: column;
+
+            & > *:not(:last-child) {
+                margin-bottom: 7.5rem;
+            }
+        }
+
+        @include respond-phone-small {
+            & > *:not(:last-child) {
+                margin-bottom: 6.5rem;
+            }
+        }
+    }
+
+    &__forecast {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include respond-tab-landscape {
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        @include respond-phone-small {
+            padding-left: 1.5rem;
+        }
+
+        //removes all default margins from p tags
+        & p {
+            margin: 1rem 0;
+        }
+    }
+
+    &__date {
+        position: relative; //for abs positioning of grey line after pseudo element
+        margin-bottom: 2rem !important;
+
+        &::after {
+            @include greyLine;
+            width: 20rem;
+            height: 1px;
+            background: rgba(0,0,0, 0.3);
+
+            @include respond-tab-landscape {
+                width: 1px;
+                height: 15rem;
+                bottom: 3.5rem;
+                left: 0;
+                transform: translateX(28rem) translateY(100%);
+            }
+
+            @include respond-phone {
+                height: 17rem;
+                transform: translateX(22.5rem) translateY(85%);
+            }
+
+            @include respond-phone-small {
+                height: 14rem;
+                transform: translateX(20.25rem) translateY(85%);
+            }
+        }
+    }
+
+    &__upper {
+        @include respond-tab-landscape {
+            margin-left: -5rem;
+            text-align: right;
+        }
+    }
+
+    &__bottom {
+        position: relative; //for abs positioning of weather icon and day/night btns
+        padding-top: 5rem;
+        margin-top: 3rem;
+
+        @include respond-tab-landscape {
+            padding-top: 0;
+            margin-top: 0;
+            text-align: left;
+        }
+    }
+
+    &__weather-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @include respond-tab-landscape {
+            left: auto;
+            right: -12.5rem;
+        }
+
+        @include respond-phone {
+            right: auto;
+            left: -15rem;
+            top: -4.5rem;
+            transform: scale(.75);
+        }
+    }
+
+    &__day-btns {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        @include respond-tab-landscape {
+            right: -11.5rem;
+            top: 7.5rem;
+        }
+
+        @include respond-phone {
+            right: auto;
+            left: 2.5rem;
+            top: -3rem;
+        }
+    }
+
+    &__day-btn {
+        position: relative; //for z-index on active class to work and btn hovers (in button file)
+        transition: all .15s;
+
+        &--day {
+            margin-right: -1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        &--night {
+            padding-left: 1.25rem;
+        }
+
+        &--active { //to manipulate using JS to show active unit
+            background-color: var(--color-orange-3);
+            z-index: 10;
+        }
+    }
+
+    &__weather-text {
+        @include respond-tab-landscape {
+            margin-bottom: 2rem !important;
+        }
+    }
+}
